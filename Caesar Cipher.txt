@@ -1,0 +1,15 @@
+package Assignment_CC
+
+object CaesarCipher {
+  def main(args:Array[String]){
+    
+	val alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	val string = "Helloworld"
+	val Encrypt = (c:Char,key:Int,a:String)=> a((a.indexOf(c.toUpper)+key)%a.size)
+	val Decrypt = (c:Char,key:Int,a:String)=> a((a.indexOf(c.toUpper)-key)%a.size)
+	val cipher = (algo:(Char,Int,String)=> Char,s:String,key:Int,a:String)=> s.map(algo(_,key,a))
+	
+	println("Encryption : "+" "+cipher(Encrypt,string,6,alphabet))
+	println("Decryption : "+" "+cipher(Decrypt,string,3,alphabet))
+  }
+}
